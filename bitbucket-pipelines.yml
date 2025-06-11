@@ -1,0 +1,14 @@
+pipelines:
+  branches:
+   main:
+    - step: 
+        name: Deploy to production
+        size: 2x
+        deployment: production
+        script:
+          - chown -R 165536:165536 $BITBUCKET_CLONE_DIR
+          - pipe: microsoft/azure-static-web-apps-deploy:main
+            variables:
+                APP_LOCATION: '$BITBUCKET_CLONE_DIR'
+                OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/dist/account-balance-viewer-ui/browser'
+                API_TOKEN: $deployment_token

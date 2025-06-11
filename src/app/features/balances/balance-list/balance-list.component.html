@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card>
+    <div class="balances-header">
+      <div class="main-title">Account Balances</div>
+      <div class="subtitle">{{ getBalanceDate() }}</div>
+    </div>
+    <mat-card-content>
+      @if (loading()) {
+        <div class="loading">Loading balances...</div>
+      } @else if (balances().length > 0) {
+        <div class="balance-grid">
+          @for (balance of balances(); track balance.accountName) {
+            <div class="balance-cell">
+              <div class="balance-name">{{ balance.accountName }}</div>
+              <div class="balance-amount" [class.negative]="balance.balance < 0">
+                {{ balance.formattedBalance }}
+              </div>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="no-data">No balance data available</div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

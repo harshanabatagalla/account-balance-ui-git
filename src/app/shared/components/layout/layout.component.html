@@ -1,0 +1,60 @@
+<mat-toolbar class="modern-header">
+  <div class="logo-section">
+    <div class="logo-container">
+      <mat-icon class="logo-icon">business</mat-icon>
+      <div class="company-info">
+        <span class="company-name">Jondell Corp</span>
+        <span class="app-subtitle">Account Balance Viewer</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  @if (isAuthenticated()) {
+  <nav class="nav-section">
+     @if (isAdmin()) {
+    <a mat-button class="nav-button" routerLink="/balances" routerLinkActive="active">
+      <mat-icon class="nav-icon">account_balance_wallet</mat-icon>
+      <span class="nav-text">Balances</span>
+    </a>
+    <a mat-button class="nav-button" routerLink="/manage-accounts" routerLinkActive="active">
+      <mat-icon class="nav-icon">cloud_upload</mat-icon>
+      <span class="nav-text">Manage Accounts</span>
+    </a>
+  }
+  </nav>
+
+  <div class="user-section">
+    <button mat-icon-button class="user-menu-trigger" [matMenuTriggerFor]="userMenu">
+      <div class="user-avatar">
+        <mat-icon>person</mat-icon>
+      </div>
+    </button>
+
+    <mat-menu #userMenu="matMenu" class="user-menu">
+      <div class="user-info-card">
+        <div class="user-avatar-large">
+          <mat-icon>person</mat-icon>
+        </div>
+        <div class="user-details">
+          <div class="user-name">{{ currentUser()?.name }}</div>
+          <div class="user-email" matTooltip="{{ currentUser()?.email }}">
+            {{ currentUser()?.email }}
+          </div>
+          <div class="user-role">{{ isAdmin() ? 'Administrator' : 'User' }}</div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <button mat-menu-item class="logout-button" (click)="logout()">
+        <mat-icon class="logout-icon">logout</mat-icon>
+        <span>Sign Out</span>
+      </button>
+    </mat-menu>
+  </div>
+  }
+</mat-toolbar>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

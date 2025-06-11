@@ -1,0 +1,135 @@
+.upload-header {
+  padding: 18px;
+}
+
+.main-title {
+ font-size: 2.2rem;
+    font-weight: 900;
+    color: #1a237e;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 8px rgba(26,35,126,0.04);
+    padding-bottom: 4px;
+}
+.subtitle {
+   font-size: 1.2rem;
+    font-weight: 700;
+    color: #1976d2;
+    letter-spacing: 0.2px;
+    margin-bottom: 4px;
+}
+.container {
+  padding: 32px 0;
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: none;
+  background: #fff;
+  border: 1.5px solid #e0e4ea;
+}
+
+mat-card-content {
+  padding-top: 0;
+}
+
+.upload-area {
+  border: 1.5px solid #bfc8d6;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 32px 18px;
+  background: #fff;
+  text-align: center;
+  margin: 24px 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, background-color 0.3s;
+
+  &:hover,
+  &.dragover {
+    border-color: #1976d2;
+    background-color: #f7fafd;
+  }
+}
+
+.upload-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #1976d2;
+  margin-bottom: 16px;
+}
+
+.file-info {
+  color: #4b5e6b;
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+.file-selected {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background-color: #f7fafd;
+  border-radius: 8px;
+  margin: 18px 0 10px 0;
+  border: 1.5px solid #bfc8d6;
+
+  mat-icon {
+    color: #43a047;
+  }
+  button {
+    margin-left: auto;
+    color: #e53935;
+  }
+}
+
+mat-progress-bar {
+  margin: 16px 0;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px 24px 24px;
+  background: transparent;
+}
+
+@media (max-width: 600px) {
+  .upload-header {
+    padding: 12px 0 10px 8px;
+    .main-title {
+      font-size: 1.2rem;
+    }
+    .subtitle {
+      font-size: 1rem;
+    }
+  }
+  .container {
+    padding: 8px 0;
+  }
+  mat-card {
+    border-radius: 8px;
+    padding: 0 2px;
+  }
+  .upload-area {
+    padding: 18px 4px;
+    border-radius: 6px;
+  }
+  .file-selected {
+    padding: 10px 8px;
+    border-radius: 6px;
+  }
+  mat-card-actions {
+    padding: 12px 8px 16px 8px;
+  }
+}

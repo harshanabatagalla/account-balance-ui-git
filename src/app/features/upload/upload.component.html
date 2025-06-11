@@ -1,0 +1,54 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="main-title" >Upload Account Balances</mat-card-title>
+      <mat-card-subtitle class="subtitle" >Excel or tab-separated text files</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="upload-area" 
+           [class.dragover]="isDragOver()"
+           (dragover)="onDragOver($event)"
+           (dragleave)="onDragLeave($event)"
+           (drop)="onDrop($event)"
+           (click)="fileInput.click()">
+        <mat-icon class="upload-icon">cloud_upload</mat-icon>
+        <p>Drag and drop files here or click to browse</p>
+        <p class="file-info">Supported formats: .xlsx, .xls, .txt <br>Limit the file size to 10MB</p>
+      </div>
+      
+      <input #fileInput 
+             type="file" 
+             hidden 
+             accept=".xlsx,.xls,.txt"
+             (change)="onFileSelected($event)">
+      
+      @if (selectedFile()) {
+        <div class="file-selected">
+          <mat-icon>description</mat-icon>
+          <span>{{ selectedFile()?.name }}</span>
+          <button mat-icon-button (click)="clearFile()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      }
+      
+      @if (uploading()) {
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      }
+    </mat-card-content>
+    
+    <mat-card-actions>
+      <button mat-flat-button  
+              color="primary" 
+              [disabled]="!selectedFile() || uploading()"
+              (click)="uploadFile()">
+        @if (uploading()) {
+          Uploading...
+        } @else {
+          Upload File
+        }
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

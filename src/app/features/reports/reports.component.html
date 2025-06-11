@@ -1,0 +1,35 @@
+<div class="container">
+    <mat-card>
+        <div class="reports-header">
+            <div class="main-title">Monthly Balance Summary</div>
+            <div class="subtitle">Overview of all accounts by month</div>
+        </div>
+        <mat-card-content>
+            @if (summaries().length === 0) {
+            <div class="no-data">No summary data available</div>
+            } @else {
+            @for (summary of summaries(); track summary.month) {
+            <div class="month-section">
+                <!-- inside your @for (summary ...) -->
+                <div class="month-title-row">
+                    <span class="month-label">{{ formatMonth(summary.month) }}</span>
+                    <span class="total-balance-badge" [class.negative]="summary.totalBalance < 0">
+                        Total: {{ summary.totalBalance | number:'1.2-2' }}
+                    </span>
+                </div>
+                <div class="balance-grid">
+                    @for (acc of summary.accountBalances; track acc.accountName) {
+                    <div class="balance-cell">
+                        <div class="balance-name">{{ acc.accountName }}</div>
+                        <div class="balance-amount" [class.negative]="acc.balance < 0">
+                            {{ acc.formattedBalance }}
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            }
+            }
+        </mat-card-content>
+    </mat-card>
+</div>

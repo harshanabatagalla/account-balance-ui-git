@@ -1,0 +1,22 @@
+<div class="unauthorized-container">
+  <mat-card class="unauthorized-card">
+    <mat-card-header>
+      <mat-card-title>Access Denied</mat-card-title>
+      <mat-card-subtitle>You don't have permission to access this resource</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="unauthorized-content">
+        <mat-icon class="unauthorized-icon">block</mat-icon>
+        <p>You need admin privileges to access this page. Please contact your administrator if you believe this is an error.</p>
+      </div>
+    </mat-card-content>
+    
+    <mat-card-actions align="start">
+      <button mat-flat-button color="primary" routerLink="/balances">
+        <mat-icon>home</mat-icon>
+        Go to Balances
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

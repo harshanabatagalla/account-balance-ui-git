@@ -1,0 +1,209 @@
+// Login Container
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+// Brand Section
+.brand-section {
+  text-align: center;
+  
+  .company-logo {
+    margin-bottom: 20px;
+    
+    .logo-icon {
+      font-size: 64px;
+      width: 64px;
+      height: 64px;
+      color: #1976d2;
+      background: rgba(25, 118, 210, 0.1);
+      border-radius: 50%;
+      padding: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  .company-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+  }
+  
+  .app-subtitle {
+    font-size: 1.125rem;
+    color: #666;
+    margin: 0;
+    font-weight: 400;
+  }
+}
+
+// Login Card
+.login-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  
+  mat-card-content {
+    padding: 40px 32px;
+  }
+}
+
+// Welcome Section
+.welcome-section {
+  text-align: center;
+  margin-bottom: 32px;
+  
+  .welcome-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+  }
+  
+  .welcome-message {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+// Login Form
+.login-form {
+  .sign-in-button {
+    width: 100%;
+    height: 48px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    text-transform: none;
+    
+    mat-icon {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+  }
+}
+
+// Footer
+.login-footer {
+  text-align: center;
+  
+  .footer-text {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .login-container {
+    padding: 20px 16px;
+  }
+  
+  .login-wrapper {
+    max-width: 100%;
+    gap: 32px;
+  }
+  
+  .brand-section {
+    .company-logo .logo-icon {
+      font-size: 56px;
+      width: 56px;
+      height: 56px;
+      padding: 14px;
+    }
+    
+    .company-name {
+      font-size: 2.25rem;
+    }
+    
+    .app-subtitle {
+      font-size: 1rem;
+    }
+  }
+  
+  .login-card mat-card-content {
+    padding: 32px 24px;
+  }
+  
+  .welcome-section {
+    .welcome-title {
+      font-size: 1.75rem;
+    }
+    
+    .welcome-message {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 16px;
+  }
+  
+  .login-wrapper {
+    gap: 24px;
+  }
+  
+  .brand-section {
+    .company-logo .logo-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      padding: 12px;
+    }
+    
+    .company-name {
+      font-size: 2rem;
+    }
+    
+    .app-subtitle {
+      font-size: 0.95rem;
+    }
+  }
+  
+  .login-card mat-card-content {
+    padding: 28px 20px;
+  }
+  
+  .welcome-section {
+    margin-bottom: 24px;
+    
+    .welcome-title {
+      font-size: 1.5rem;
+    }
+    
+    .welcome-message {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .login-form .sign-in-button {
+    height: 44px;
+    font-size: 0.95rem;
+  }
+  
+  .login-footer .footer-text {
+    font-size: 0.8rem;
+  }
+}
